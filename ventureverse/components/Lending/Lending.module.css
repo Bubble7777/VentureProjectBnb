@@ -1,0 +1,194 @@
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header {
+  max-width: 1440px;
+  height: 75px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+.title {
+  font-size: 25px;
+}
+.link {
+  padding: 6px;
+  border-radius: 10px;
+}
+.welcome {
+  position: relative;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+}
+
+.welcome__image {
+  position: absolute;
+  filter: brightness(60%);
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.welcome__title {
+  font-size: 50px;
+  font-weight: 900;
+  margin: 100px 0 80px;
+}
+.welcome__subtitle {
+  font-size: 35px;
+  font-weight: 600;
+  margin: 20px 20px;
+}
+.welcome__linkbtn {
+  color: white;
+  background-color: #1d4fd8ab;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  align-items: center;
+  border: none;
+  width: 300px;
+  height: 70px;
+  border-radius: 10px;
+  margin: 0 auto;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.welcome__linkbtn:hover {
+  background-color: #1e40af;
+}
+
+.welcome__linkbtn:active {
+  transform: translateY(5px) scale(0.95);
+}
+
+.about {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+.about__subtitle {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.about__text {
+  text-indent: 40px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+.investors {
+  margin-top: 40px;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+.investors__wrapperimage {
+  max-width: 40%;
+  max-height: 80%;
+  margin: auto 0;
+}
+.investors__image {
+  width: 100%;
+  height: 100%;
+}
+.investors__text {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 40px;
+  text-indent: 40px;
+  text-align: justify;
+}
+.investors__subtitle {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.investors__text {
+  text-indent: 40px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.starts {
+  margin-top: 40px;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+.starts__wrapperimage {
+  max-width: 40%;
+  max-height: 80%;
+  margin: auto 0;
+}
+.starts__image {
+  width: 100%;
+  height: 100%;
+}
+.starts__subtitle {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.starts__text {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 40px;
+  text-indent: 40px;
+  text-align: justify;
+}
+.сonclusion__image {
+  display: block;
+  margin: 0 auto;
+}
+.сonclusion__subtitle {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.сonclusion__text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-indent: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.footer {
+  text-align: center;
+  height: 75px;
+  margin: 20px auto 0;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2);
+  align-items: center;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1440px) {
+  .wrap {
+    max-width: 90%;
+  }
+  .header {
+    max-width: 90%;
+  }
+}

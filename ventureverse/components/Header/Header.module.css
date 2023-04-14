@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+}
+.nav {
+  height: 75px;
+  margin: 10px auto;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2);
+  align-items: center;
+  flex: 4;
+}
+.btns {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+.uls {
+  height: 75px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.links {
+  padding: 10px;
+  border-radius: 10px;
+}
+.links:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
