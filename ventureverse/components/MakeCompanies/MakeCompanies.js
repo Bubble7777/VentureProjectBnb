@@ -1,10 +1,10 @@
-import { useState, useRef } from "react";
-import styles from "./MakeCompanies.module.css";
-import Link from "next/link";
-import { parseTime } from "@/utils/parsetime";
-import { checkDate } from "@/utils/checkdate";
-import { ventureVerseWithSigner } from "@/utils/ventureverse";
-import { parseEther } from "ethers";
+import { useState, useRef } from 'react';
+import styles from './MakeCompanies.module.css';
+import Link from 'next/link';
+import { parseTime } from '@/utils/parsetime';
+import { checkDate } from '@/utils/checkdate';
+import { ventureVerseWithSigner } from '@/utils/ventureverse';
+import { parseEther } from 'ethers';
 
 const MakeCompanies = () => {
   const [show, setShow] = useState(0);
@@ -15,21 +15,21 @@ const MakeCompanies = () => {
   const endRef = useRef();
   const needRef = useRef();
 
-  const [address, setAddress] = useState("");
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+  const [address, setAddress] = useState('');
+  const [title, setTitle] = useState('');
+  const [desc, setDesc] = useState('');
   const [end, setEnd] = useState();
   const [need, setNeed] = useState();
 
-  const [sucMessage, setSucMessage] = useState("");
-  const [errMessage, setErrMessage] = useState("");
+  const [sucMessage, setSucMessage] = useState('');
+  const [errMessage, setErrMessage] = useState('');
 
   const [loading, setLoading] = useState(false);
 
   const submitMakeCompany = (e) => {
     e.preventDefault();
-    setErrMessage("");
-    setSucMessage("");
+    setErrMessage('');
+    setSucMessage('');
     if (
       !addressRef.current.value ||
       !titleRef.current.value ||
@@ -37,11 +37,11 @@ const MakeCompanies = () => {
       !endRef.current.value ||
       !needRef.current.value
     ) {
-      setErrMessage("Заполните поля");
+      setErrMessage('Заполните поля');
       return;
     }
     if (!checkDate(endRef.current.value)) {
-      setErrMessage("конец в прошлом?");
+      setErrMessage('конец в прошлом?');
       console.log(errMessage);
       return;
     }
@@ -57,26 +57,19 @@ const MakeCompanies = () => {
 
   const MakeCompany = async (e) => {
     e.preventDefault();
-    setErrMessage("");
-    setSucMessage("");
+    setErrMessage('');
+    setSucMessage('');
     setLoading(true);
     try {
       const contract = await ventureVerseWithSigner();
-      const response = await contract.createCompany(
-        address,
-        title,
-        desc,
-        end,
-        need,
-        {
-          value: parseEther("0.01"),
-        }
-      );
+      const response = await contract.createCompany(address, title, desc, end, need, {
+        value: parseEther('0.01'),
+      });
       await response.wait();
       setShow(2);
       setSucMessage(response.hash);
     } catch (error) {
-      setErrMessage("Вероятно у вас нет денег");
+      setErrMessage('Вероятно у вас нет денег');
       setShow(0);
       console.error(error);
     }
@@ -85,10 +78,10 @@ const MakeCompanies = () => {
     <div className={styles.wrap}>
       {show === 0 && (
         <form className={styles.form} onSubmit={submitMakeCompany}>
-          <p className={styles.form__title}>Создать компанию:</p>
+          <p className={styles.form__title}>Создать проект</p>
           <div className={styles.input__container}>
             <label className={styles.labels} htmlFor="address">
-              Owner of company address:{" "}
+              Адрес кольшелька компании:
             </label>
             <input
               ref={addressRef}
@@ -96,13 +89,13 @@ const MakeCompanies = () => {
               type="text"
               name="address"
               id="address"
-              placeholder="Address"
+              placeholder="Адрес кошелька"
             />
           </div>
 
           <div className={styles.input__container}>
             <label className={styles.labels} htmlFor="name">
-              Name your company:{" "}
+              Название компании:
             </label>
             <input
               ref={titleRef}
@@ -110,12 +103,12 @@ const MakeCompanies = () => {
               type="text"
               name="name"
               id="name"
-              placeholder="Name"
+              placeholder="Название компании"
             />
           </div>
           <div className={styles.input__container}>
             <label className={styles.labels} htmlFor="desc">
-              Description of your company:{" "}
+              Ссылка на проект:
             </label>
             <input
               ref={descRef}
@@ -123,12 +116,12 @@ const MakeCompanies = () => {
               type="text"
               name="desc"
               id="desc"
-              placeholder="Desc"
+              placeholder="Ссылка на проект"
             />
           </div>
           <div className={styles.input__container}>
             <label className={styles.labels} htmlFor="end">
-              End donate to your company:{" "}
+              Дата завершения сбора:
             </label>
             <input
               ref={endRef}
@@ -136,12 +129,12 @@ const MakeCompanies = () => {
               type="date"
               name="end"
               id="end"
-              placeholder="End"
+              placeholder="Конец"
             />
           </div>
           <div className={styles.input__container}>
             <label className={styles.labels} htmlFor="donate">
-              Need donate to you company:{" "}
+              Требуемое количество средств:
             </label>
             <input
               ref={needRef}
@@ -149,7 +142,7 @@ const MakeCompanies = () => {
               type="number"
               name="donate"
               id="donate"
-              placeholder="Need donate"
+              placeholder="Количество средств"
               step="any"
             />
           </div>
@@ -161,7 +154,7 @@ const MakeCompanies = () => {
         <div className={styles.form}>
           {loading ? (
             <>
-              <div>Making...</div>
+              <div>В процессе...</div>
               <div
                 aria-label="Orange and tan hamster running in a metal wheel"
                 role="img"
@@ -175,26 +168,10 @@ const MakeCompanies = () => {
                       <div className={styles.hamster__eye}></div>
                       <div className={styles.hamster__nose}></div>
                     </div>
-                    <div
-                      className={
-                        styles.hamster__limb + " " + styles.hamster__limb__fr
-                      }
-                    ></div>
-                    <div
-                      className={
-                        styles.hamster__limb + " " + styles.hamster__limb__fl
-                      }
-                    ></div>
-                    <div
-                      className={
-                        styles.hamster__limb + " " + styles.hamster__limb__br
-                      }
-                    ></div>
-                    <div
-                      className={
-                        styles.hamster__limb + " " + styles.hamster__limb__bl
-                      }
-                    ></div>
+                    <div className={styles.hamster__limb + ' ' + styles.hamster__limb__fr}></div>
+                    <div className={styles.hamster__limb + ' ' + styles.hamster__limb__fl}></div>
+                    <div className={styles.hamster__limb + ' ' + styles.hamster__limb__br}></div>
+                    <div className={styles.hamster__limb + ' ' + styles.hamster__limb__bl}></div>
                     <div className={styles.hamster__tail}></div>
                   </div>
                 </div>
@@ -204,9 +181,7 @@ const MakeCompanies = () => {
           ) : (
             <>
               <p className={styles.form__title}>Вы уверены?</p>
-              <p className={styles.form__title}>
-                Стоимость создания компании 0.01 BNB
-              </p>
+              <p className={styles.form__title}>Стоимость создания компании 0.01 BNB</p>
               <button className={styles.submit} onClick={MakeCompany}>
                 Да
               </button>

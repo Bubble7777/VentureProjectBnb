@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import styles from "./AllCompanies.module.css";
-import { ventureVerse, ventureVerseWithSigner } from "@/utils/ventureverse";
-import { formatEther, parseEther } from "ethers";
+import { useEffect, useRef, useState } from 'react';
+import { ventureVerse, ventureVerseWithSigner } from '@/utils/ventureverse';
+import { formatEther, parseEther } from 'ethers';
+import styles from './AllCompanies.module.css';
 
 const AllCompanies = () => {
-  const [errMessage, setErrMessage] = useState("");
-  const [sucMessage, setSucMessage] = useState("");
+  const [errMessage, setErrMessage] = useState('');
+  const [sucMessage, setSucMessage] = useState('');
   const [comps, setComps] = useState([]);
   const [index, setIndex] = useState();
   const [show, setShow] = useState(0);
@@ -17,7 +17,7 @@ const AllCompanies = () => {
   }, []);
 
   const getComp = async () => {
-    setErrMessage("");
+    setErrMessage('');
     try {
       const index = await ventureVerse.indexCompany();
       const response = [];
@@ -29,34 +29,34 @@ const AllCompanies = () => {
       setShow(2);
     } catch (error) {
       setShow(1);
-      setErrMessage("Что-то пошло не так");
+      setErrMessage('Что-то пошло не так');
       console.error(error);
     }
   };
 
   const getDate = (time) => {
-    return new Date(Number(time) * 1000).toLocaleString("ru-RU", {
-      day: "numeric",
-      month: "numeric",
-      year: "numeric",
+    return new Date(Number(time) * 1000).toLocaleString('ru-RU', {
+      day: 'numeric',
+      month: 'numeric',
+      year: 'numeric',
     });
   };
 
   const handleSendDonate = async (i) => {
-    setErrMessage("");
-    setSucMessage("");
+    setErrMessage('');
+    setSucMessage('');
     setShow(3);
     setIndex(i);
   };
 
   const sendDonate = async (e) => {
     e.preventDefault();
-    setErrMessage("");
-    setSucMessage("");
-    console.log("старт");
+    setErrMessage('');
+    setSucMessage('');
+    console.log('старт');
     const amount = amountRef.current.value;
     if (!amount) {
-      setErrMessage("Enter amount");
+      setErrMessage('Enter amount');
       return;
     }
     setShow(0);
@@ -69,7 +69,7 @@ const AllCompanies = () => {
       setShow(4);
       setSucMessage(response.hash);
     } catch (error) {
-      setErrMessage("Вероятно у вас нет денег");
+      setErrMessage('Вероятно у вас нет денег');
       setShow(1);
       console.error(error);
     }
@@ -96,7 +96,7 @@ const AllCompanies = () => {
         <div className={styles.err}>
           <h3>{errMessage}</h3>
           <button className={styles.submit} onClick={() => setShow(2)}>
-            Back
+            Назад
           </button>
         </div>
       )}
@@ -107,22 +107,13 @@ const AllCompanies = () => {
             <li className={styles.card} key={index}>
               <div className={styles.card_details}>
                 <p className={styles.text_title}>{comp.title}</p>
-                <p className={styles.text_body}>{`desc: ${comp.desc}`}</p>
-                <p className={styles.text_body}>{`ended: ${getDate(
-                  comp.end
-                )}`}</p>
-                <p className={styles.text_body}>{`have: ${formatEther(
-                  comp.nowDonate
-                )}`}</p>
-                <p className={styles.text_body}>{`need: ${formatEther(
-                  comp.needDonate
-                )}`}</p>
+                <p className={styles.text_body}>{`Проект: ${comp.desc}`}</p>
+                <p className={styles.text_body}>{`Дата окончания ${getDate(comp.end)}`}</p>
+                <p className={styles.text_body}>{`Собрано: ${formatEther(comp.nowDonate)}`}</p>
+                <p className={styles.text_body}>{`Сбор: ${formatEther(comp.needDonate)}`}</p>
               </div>
-              <button
-                className={styles.card_button}
-                onClick={() => handleSendDonate(comp.index)}
-              >
-                Donate!
+              <button className={styles.card_button} onClick={() => handleSendDonate(comp.index)}>
+                Поддержать
               </button>
             </li>
           ))}
@@ -133,7 +124,7 @@ const AllCompanies = () => {
         <form className={styles.form} onSubmit={sendDonate}>
           <div className={styles.input__container}>
             <label className={styles.labels} htmlFor="amount">
-              How much donate?
+              Сколько отправить?
             </label>
             <input
               ref={amountRef}
@@ -148,7 +139,7 @@ const AllCompanies = () => {
           <div className={styles.btns}>
             <input className={styles.submit} type="submit" value="Send" />
             <button className={styles.submit} onClick={() => setShow(2)}>
-              Back
+              Назад
             </button>
           </div>
 
@@ -169,7 +160,7 @@ const AllCompanies = () => {
         <div className={styles.suc}>
           <h3>{sucMessage}</h3>
           <button className={styles.submit} onClick={() => setShow(2)}>
-            Back
+            Назад
           </button>
         </div>
       )}

@@ -13,8 +13,7 @@
   width: 70%;
   height: 720px;
   border-radius: 10px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
 }
 .form__title {
@@ -48,6 +47,10 @@
   background-color: #1e40af;
 }
 
+.inputs::placeholder {
+  color: black;
+}
+
 .links:active {
   transform: translateY(5px) scale(0.95);
 }
@@ -55,8 +58,8 @@
   display: block;
   padding: 5px;
   font-size: 25px;
-  background-color: #1d4ed8;
-  color: #ffffff;
+  background-color: yellowgreen;
+  color: black;
   font-weight: 500;
   width: 100%;
   border-radius: 10px;
@@ -64,7 +67,7 @@
   margin-top: 20px;
 }
 .submit:hover {
-  background-color: #1e40af;
+  opacity: 0.9;
 }
 
 .submit:active {
@@ -120,8 +123,7 @@
   animation: hamsterHead var(--dur) ease-in-out infinite;
   background: hsl(30, 90%, 55%);
   border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
-  box-shadow: 0 -0.25em 0 hsl(30, 90%, 80%) inset,
-    0.75em -1.55em 0 hsl(30, 90%, 90%) inset;
+  box-shadow: 0 -0.25em 0 hsl(30, 90%, 80%) inset, 0.75em -1.55em 0 hsl(30, 90%, 90%) inset;
   top: 0;
   left: -2em;
   width: 2.75em;
@@ -164,8 +166,7 @@
   animation: hamsterBody var(--dur) ease-in-out infinite;
   background: hsl(30, 90%, 90%);
   border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
-  box-shadow: 0.1em 0.75em 0 hsl(30, 90%, 55%) inset,
-    0.15em -0.5em 0 hsl(30, 90%, 80%) inset;
+  box-shadow: 0.1em 0.75em 0 hsl(30, 90%, 55%) inset, 0.15em -0.5em 0 hsl(30, 90%, 80%) inset;
   top: 0.25em;
   left: 2em;
   width: 4.5em;
@@ -199,16 +200,7 @@
 .hamster__limb__br,
 .hamster__limb__bl {
   border-radius: 0.75em 0.75em 0 0;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 30%,
-    70% 90%,
-    70% 100%,
-    30% 100%,
-    40% 90%,
-    0% 30%
-  );
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 70% 90%, 70% 100%, 30% 100%, 40% 90%, 0% 30%);
   top: 1em;
   left: 2.8em;
   width: 1.5em;

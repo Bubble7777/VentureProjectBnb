@@ -21,10 +21,6 @@ contract VentureVerse is Ownable {
 
     mapping(uint256 => Company) public companies;
     uint public indexCompany;
-
-    function getCurrentTimestamp() external view returns (uint256) {
-        return block.timestamp;
-    }
    
     function createCompany(address _companyOwner, string memory _title, string memory _desc, uint _end, uint _needDonate) external payable {
         require(block.timestamp < _end , "deadline in past");

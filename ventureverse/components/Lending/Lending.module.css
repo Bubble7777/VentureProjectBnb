@@ -1,15 +1,17 @@
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
+  color: #bdb76b;
 }
 .header {
   max-width: 1440px;
   height: 75px;
-  margin: 10px auto;
+  margin: 20px auto;
   display: flex;
   justify-content: space-around;
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2);
   align-items: center;
+  color: #ffefd5;
 }
 .title {
   font-size: 25px;
@@ -20,22 +22,14 @@
 }
 .welcome {
   position: relative;
-  height: 600px;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  color: white;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  color: #ffefd5;
 }
 
-.welcome__image {
-  position: absolute;
-  filter: brightness(60%);
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-}
 .welcome__title {
   font-size: 50px;
   font-weight: 900;
